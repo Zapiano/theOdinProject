@@ -1,0 +1,121 @@
+
+body
+{
+	background-color: #bec0c6;
+}
+
+#fundo
+{
+    box-shadow: 10px 10px 5px #a2a2a2;
+    background-color: #ffffff;
+    margin: 20px 60px 20px 120px;
+    border-radius: 5px;
+    display: inline-block;
+
+    /*overflow-x: hidden;
+    overflow-y: hidden;
+    padding-bottom: 0;
+    padding-left: 37px;
+    padding-right: 37px;
+    padding-top: 0;
+    position: relative;
+    z-index: 100;*/
+}
+
+#sup
+{
+	height: 50px;
+	margin: 20px 20px 20px 20px;
+	padding: 20px 20px;
+}
+
+#logo>img 
+{
+	margin-top: -18px;
+	margin-right: -10px;
+	margin-left: -15px;
+	width: 100px;
+	float:left;
+}
+
+#menu
+{
+	margin-right: -10px;
+	margin-left: -10px;
+	float:right;
+}
+
+.botaum
+{
+	margin-top: 20px;
+	display: inline-block;
+	text-decoration: none;
+	color: #24335e;
+
+}
+
+.botaum>a:link
+{
+	text-decoration: none;
+	font-size: 20px;
+	font-family: sans-serif;
+}
+
+.botaum>a:visited
+{
+	text-decoration: none;
+	font-size: 20px;
+	font-family: sans-serif;
+}
+
+.botaum>a:hover
+{
+	color:#35509a;
+	font-size:20px;
+	font-family: sans-serif;
+
+}
+
+#corpo
+{
+	min-height: 450px;
+	margin: 20px 20px 20px 20px;
+}
+
+.trecos /* São os "quadros" que vão aparecer */
+{
+	width: 300px;
+	height: auto;
+	margin: 40px 30px 20px 30px;
+	display: inline-block;
+	float:left;
+	font-family: sans-serif;
+	color: #24335e;
+	position: relative;
+	border: 5px dotted #24335e;
+	border-radius: 15px;
+}
+
+thead>th
+{
+	text-align: center;
+	font-size: 25px;
+}
+
+tbody>th
+{
+	text-align: center;
+	font-size: 18px;
+}
+
+td
+{
+	font-size: 16px;
+	text-align: center;
+	font-family: sans-serif;
+}
+
+table 
+{
+	margin: auto;
+}
