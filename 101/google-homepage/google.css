@@ -1,0 +1,121 @@
+#menu
+{
+  height: 30px;
+  position:relative; 
+  margin: 17px -23px 27px 0px;
+  -moz-text-decoration-color: -moz-use-text-color;
+  -moz-text-decoration-line: none;
+  -moz-text-decoration-style: solid;
+  color: #404040;
+  font-family:Liberation Sans;
+  font-size:13px;
+}
+
+#menu>div
+{
+  margin: 0px auto;
+}
+
+.right
+{
+  height:30px; width: 200px;
+  float: right;
+}
+
+.left
+{
+  height:30px; width: 180px;
+  float: right;
+}
+
+.ops1, .ops2, .ops3
+{
+  margin: 5px 8px;
+  float: left;
+}
+
+.quad
+{
+  margin: 3px 8px;  
+  float: left;
+}
+
+.sino
+{
+  margin: 1px 8px;  
+  float: left;;
+}
+
+.mais
+{
+  margin: -3px 8px;  
+  float: left;
+}
+
+.foto
+{
+  border-radius:25px;
+  margin: -2px 8px;  
+  float: left;
+  height: 32px; width: 32px;
+  background-image: url('photo-google.jpg');
+  background-color:blue;
+}
+
+#corpo>div
+{
+  height:30px; width: 30px;
+}
+
+#corpo
+{
+  background-image: url('logoogle.png');
+  background-repeat: no-repeat;
+  height: 190px; width: 540px;
+  margin: 0 auto;
+  position: absolute; 
+  top: 160px; right: 50px; left: 50px;
+
+}
+
+form
+{
+  background-color: #d9d9d9;
+  margin: 285px -10px;
+  position: relative; bottom:70px;
+}
+
+.botaum
+{
+  position: relative; 
+  bottom: 60px;
+  margin: 0px auto;
+}
+
+.botaum-l,.botaum-r
+{
+  border-radius: 3px;
+  border-color: #dbdbdb;
+  border-width: 2px;
+  border-style: solid;
+  background-color: #f2f2f2;
+  font-family: 'Liberation Sans';
+  color:#444 ;
+  text-align: center;
+  padding-top: 9px;
+}
+
+.botaum-l
+{
+  width: 200px; height: 25px;
+  float: left;
+  position: absolute; left: 25px;
+}
+
+.botaum-r
+{
+  width: 200px; height: 25px;
+  float: right;
+   position: absolute; right: 25px;
+}
+

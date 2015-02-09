@@ -1,4 +1,8 @@
-div {margin: 0; padding: 0;}
+div { 
+  transition-duration: 0.7s; 
+  margin: 0; 
+  padding: 0;
+}
 div div {background: #A4CA39; position: relative;}
 
 .android{
