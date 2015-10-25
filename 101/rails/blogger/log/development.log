@@ -3990,3 +3990,487 @@ Completed 200 OK in 35ms (Views: 33.9ms | ActiveRecord: 0.2ms)
   [1m[35m (0.1ms)[0m  begin transaction
   [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "taggings" WHERE "taggings"."id" = ?[0m  [["id", 11]]
   [1m[35m (110.5ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddPaperclipFieldsToArticle (20151025011958)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151025011958"]]
+  [1m[35m (99.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_taggings_on_article_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_taggings_on_article_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_taggings_on_tag_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_taggings_on_tag_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_taggings_on_article_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_taggings_on_article_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_taggings_on_tag_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_taggings_on_tag_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddPaperclipFieldsToArticle (20151025011958)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TEMPORARY TABLE "aarticles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "articles"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (1, 'Sample Article Title', 'This is the text for my article, woo hoo!!!!!!', '2015-10-10 23:34:15.291194', '2015-10-11 22:40:16.405626')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (2, 'Artigo numero 2: a origem das especies', 'As especies se originaram. E isto foi incrível.', '2015-10-10 23:35:30.726463', '2015-10-10 23:35:30.726463')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (3, 'Artigo numero 3: a grande batalha', 'A grande batalha aconteceu. Todos foram mortos. As especies tiverem que surgir de novo, mas desta vem após meteoros e dilúvios elas estavam mais espertas.', '2015-10-10 23:36:21.284997', '2015-10-10 23:36:21.284997')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (4, 'Artigo numero 4: o fim das especiés', 'As especies desenvolveram inteligencia artificial e acabaram com sua própria existencia pela segunda vez. Desta vez as inteligencias artificiais vão garantir que as espécies não cometam o erro de surgirem novamente. Para sempre.', '2015-10-10 23:37:20.479011', '2015-10-10 23:37:20.479011')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (16, 'Titulo', 'Cortpo', '2015-10-24 18:35:28.040538', '2015-10-24 18:35:28.040538')
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "articles"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "articles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aarticles"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (1, 'Sample Article Title', 'This is the text for my article, woo hoo!!!!!!', '2015-10-10 23:34:15.291194', '2015-10-11 22:40:16.405626')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (2, 'Artigo numero 2: a origem das especies', 'As especies se originaram. E isto foi incrível.', '2015-10-10 23:35:30.726463', '2015-10-10 23:35:30.726463')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (3, 'Artigo numero 3: a grande batalha', 'A grande batalha aconteceu. Todos foram mortos. As especies tiverem que surgir de novo, mas desta vem após meteoros e dilúvios elas estavam mais espertas.', '2015-10-10 23:36:21.284997', '2015-10-10 23:36:21.284997')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (4, 'Artigo numero 4: o fim das especiés', 'As especies desenvolveram inteligencia artificial e acabaram com sua própria existencia pela segunda vez. Desta vez as inteligencias artificiais vão garantir que as espécies não cometam o erro de surgirem novamente. Para sempre.', '2015-10-10 23:37:20.479011', '2015-10-10 23:37:20.479011')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (16, 'Titulo', 'Cortpo', '2015-10-24 18:35:28.040538', '2015-10-24 18:35:28.040538')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "aarticles"[0m
+  [1m[35m (0.3ms)[0m  CREATE TEMPORARY TABLE "aarticles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "articles"[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (1, 'Sample Article Title', 'This is the text for my article, woo hoo!!!!!!', '2015-10-10 23:34:15.291194', '2015-10-11 22:40:16.405626')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (2, 'Artigo numero 2: a origem das especies', 'As especies se originaram. E isto foi incrível.', '2015-10-10 23:35:30.726463', '2015-10-10 23:35:30.726463')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (3, 'Artigo numero 3: a grande batalha', 'A grande batalha aconteceu. Todos foram mortos. As especies tiverem que surgir de novo, mas desta vem após meteoros e dilúvios elas estavam mais espertas.', '2015-10-10 23:36:21.284997', '2015-10-10 23:36:21.284997')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (4, 'Artigo numero 4: o fim das especiés', 'As especies desenvolveram inteligencia artificial e acabaram com sua própria existencia pela segunda vez. Desta vez as inteligencias artificiais vão garantir que as espécies não cometam o erro de surgirem novamente. Para sempre.', '2015-10-10 23:37:20.479011', '2015-10-10 23:37:20.479011')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (16, 'Titulo', 'Cortpo', '2015-10-24 18:35:28.040538', '2015-10-24 18:35:28.040538')
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "articles"[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "articles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "aarticles"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (1, 'Sample Article Title', 'This is the text for my article, woo hoo!!!!!!', '2015-10-10 23:34:15.291194', '2015-10-11 22:40:16.405626')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (2, 'Artigo numero 2: a origem das especies', 'As especies se originaram. E isto foi incrível.', '2015-10-10 23:35:30.726463', '2015-10-10 23:35:30.726463')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (3, 'Artigo numero 3: a grande batalha', 'A grande batalha aconteceu. Todos foram mortos. As especies tiverem que surgir de novo, mas desta vem após meteoros e dilúvios elas estavam mais espertas.', '2015-10-10 23:36:21.284997', '2015-10-10 23:36:21.284997')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (4, 'Artigo numero 4: o fim das especiés', 'As especies desenvolveram inteligencia artificial e acabaram com sua própria existencia pela segunda vez. Desta vez as inteligencias artificiais vão garantir que as espécies não cometam o erro de surgirem novamente. Para sempre.', '2015-10-10 23:37:20.479011', '2015-10-10 23:37:20.479011')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (16, 'Titulo', 'Cortpo', '2015-10-24 18:35:28.040538', '2015-10-24 18:35:28.040538')
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "aarticles"[0m
+  [1m[35m (0.5ms)[0m  CREATE TEMPORARY TABLE "aarticles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "articles"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (1, 'Sample Article Title', 'This is the text for my article, woo hoo!!!!!!', '2015-10-10 23:34:15.291194', '2015-10-11 22:40:16.405626')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (2, 'Artigo numero 2: a origem das especies', 'As especies se originaram. E isto foi incrível.', '2015-10-10 23:35:30.726463', '2015-10-10 23:35:30.726463')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (3, 'Artigo numero 3: a grande batalha', 'A grande batalha aconteceu. Todos foram mortos. As especies tiverem que surgir de novo, mas desta vem após meteoros e dilúvios elas estavam mais espertas.', '2015-10-10 23:36:21.284997', '2015-10-10 23:36:21.284997')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (4, 'Artigo numero 4: o fim das especiés', 'As especies desenvolveram inteligencia artificial e acabaram com sua própria existencia pela segunda vez. Desta vez as inteligencias artificiais vão garantir que as espécies não cometam o erro de surgirem novamente. Para sempre.', '2015-10-10 23:37:20.479011', '2015-10-10 23:37:20.479011')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (16, 'Titulo', 'Cortpo', '2015-10-24 18:35:28.040538', '2015-10-24 18:35:28.040538')
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "articles"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "articles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aarticles"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (1, 'Sample Article Title', 'This is the text for my article, woo hoo!!!!!!', '2015-10-10 23:34:15.291194', '2015-10-11 22:40:16.405626')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (2, 'Artigo numero 2: a origem das especies', 'As especies se originaram. E isto foi incrível.', '2015-10-10 23:35:30.726463', '2015-10-10 23:35:30.726463')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (3, 'Artigo numero 3: a grande batalha', 'A grande batalha aconteceu. Todos foram mortos. As especies tiverem que surgir de novo, mas desta vem após meteoros e dilúvios elas estavam mais espertas.', '2015-10-10 23:36:21.284997', '2015-10-10 23:36:21.284997')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (4, 'Artigo numero 4: o fim das especiés', 'As especies desenvolveram inteligencia artificial e acabaram com sua própria existencia pela segunda vez. Desta vez as inteligencias artificiais vão garantir que as espécies não cometam o erro de surgirem novamente. Para sempre.', '2015-10-10 23:37:20.479011', '2015-10-10 23:37:20.479011')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (16, 'Titulo', 'Cortpo', '2015-10-24 18:35:28.040538', '2015-10-24 18:35:28.040538')
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "aarticles"[0m
+  [1m[35m (0.1ms)[0m  CREATE TEMPORARY TABLE "aarticles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "articles"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (1, 'Sample Article Title', 'This is the text for my article, woo hoo!!!!!!', '2015-10-10 23:34:15.291194', '2015-10-11 22:40:16.405626')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (2, 'Artigo numero 2: a origem das especies', 'As especies se originaram. E isto foi incrível.', '2015-10-10 23:35:30.726463', '2015-10-10 23:35:30.726463')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (3, 'Artigo numero 3: a grande batalha', 'A grande batalha aconteceu. Todos foram mortos. As especies tiverem que surgir de novo, mas desta vem após meteoros e dilúvios elas estavam mais espertas.', '2015-10-10 23:36:21.284997', '2015-10-10 23:36:21.284997')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (4, 'Artigo numero 4: o fim das especiés', 'As especies desenvolveram inteligencia artificial e acabaram com sua própria existencia pela segunda vez. Desta vez as inteligencias artificiais vão garantir que as espécies não cometam o erro de surgirem novamente. Para sempre.', '2015-10-10 23:37:20.479011', '2015-10-10 23:37:20.479011')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (16, 'Titulo', 'Cortpo', '2015-10-24 18:35:28.040538', '2015-10-24 18:35:28.040538')
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "articles"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "articles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aarticles"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (1, 'Sample Article Title', 'This is the text for my article, woo hoo!!!!!!', '2015-10-10 23:34:15.291194', '2015-10-11 22:40:16.405626')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (2, 'Artigo numero 2: a origem das especies', 'As especies se originaram. E isto foi incrível.', '2015-10-10 23:35:30.726463', '2015-10-10 23:35:30.726463')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (3, 'Artigo numero 3: a grande batalha', 'A grande batalha aconteceu. Todos foram mortos. As especies tiverem que surgir de novo, mas desta vem após meteoros e dilúvios elas estavam mais espertas.', '2015-10-10 23:36:21.284997', '2015-10-10 23:36:21.284997')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (4, 'Artigo numero 4: o fim das especiés', 'As especies desenvolveram inteligencia artificial e acabaram com sua própria existencia pela segunda vez. Desta vez as inteligencias artificiais vão garantir que as espécies não cometam o erro de surgirem novamente. Para sempre.', '2015-10-10 23:37:20.479011', '2015-10-10 23:37:20.479011')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (16, 'Titulo', 'Cortpo', '2015-10-24 18:35:28.040538', '2015-10-24 18:35:28.040538')
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "aarticles"[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20151025011958"]]
+  [1m[36m (119.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_taggings_on_article_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_taggings_on_article_id' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_taggings_on_tag_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_taggings_on_tag_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddPaperclipFieldsToArticle (20151025011958)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "articles" ADD "image_file_name" varchar[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "articles" ADD "image_content_type" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "articles" ADD "image_file_size" integer[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "articles" ADD "image_updated_at" datetime
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151025011958"]]
+  [1m[35m (168.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_taggings_on_article_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_taggings_on_article_id' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_taggings_on_tag_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_taggings_on_tag_id' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 03:05:43 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (1.8ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 450ms (Views: 414.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 03:05:43 -0200
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 34ms (Views: 33.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2015-10-25 03:05:50 -0200
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?[0m  [["article_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 2]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  Rendered articles/_comment.html.erb (54.5ms)
+  Rendered comments/_form.html.erb (41.8ms)
+  Rendered articles/show.html.erb within layouts/application (147.5ms)
+Completed 200 OK in 213ms (Views: 174.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/articles/2/edit" for 127.0.0.1 at 2015-10-25 03:05:54 -0200
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?[0m  [["article_id", 2]]
+  Rendered articles/_form.html.erb (44.5ms)
+  Rendered articles/edit.html.erb within layouts/application (45.5ms)
+Completed 200 OK in 92ms (Views: 91.2ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/articles/2" for 127.0.0.1 at 2015-10-25 03:06:03 -0200
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xWxVRNA/MZz3z0dnbNABA+7rltm0TmwOET4cEbbG2dH9Mw4u7KMaZ5MEb3b9pGnDcS7pUYO6Y2Ymv0DEbhqz/A==", "article"=>{"title"=>"Artigo numero 2: a origem das especies", "body"=>"As especies se originaram. E isto foi incrível.", "tag_list"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007ff324f5fbf8 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-3071-pzw4zw.jpg>, @original_filename="5.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"article[image]\"; filename=\"5.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Article", "id"=>"2"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?  [["article_id", 2]]
+Command :: file -b --mime '/tmp/e4da3b7fbbce2345d7772b0674a318d520151025-3071-teoi4f.jpg'
+Command :: file -b --mime '/tmp/e4da3b7fbbce2345d7772b0674a318d520151025-3071-15lzz1y.jpg'
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "articles" SET "image_file_name" = ?, "image_content_type" = ?, "image_file_size" = ?, "image_updated_at" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["image_file_name", "5.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 193377], ["image_updated_at", "2015-10-25 05:06:03.719603"], ["updated_at", "2015-10-25 05:06:03.800632"], ["id", 2]]
+  [1m[35m (135.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/articles/2
+Completed 302 Found in 291ms (ActiveRecord: 135.9ms)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2015-10-25 03:06:04 -0200
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?  [["article_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 2]]
+  Rendered articles/_comment.html.erb (1.4ms)
+  Rendered comments/_form.html.erb (1.1ms)
+  Rendered articles/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 43ms (Views: 41.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2015-10-25 03:06:28 -0200
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 33ms (Views: 32.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2015-10-25 03:06:30 -0200
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?[0m  [["article_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 2]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  Rendered articles/_comment.html.erb (1.4ms)
+  Rendered comments/_form.html.erb (1.4ms)
+  Rendered articles/show.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 69ms (Views: 66.8ms | ActiveRecord: 0.6ms)
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 2]]
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2015-10-25 03:08:07 -0200
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mTag Load (0.5ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?[0m  [["article_id", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 2]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  Rendered articles/_comment.html.erb (1.0ms)
+  Rendered comments/_form.html.erb (1.4ms)
+  Rendered articles/show.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 64ms (Views: 61.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/screen.self-16f83778566f2ea814368100ac8e534d7de4921c8d7334c3f01cc357b90c6547.css?body=1" for 127.0.0.1 at 2015-10-25 03:08:07 -0200
+
+
+Started GET "/assets/comments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-25 03:08:07 -0200
+
+
+Started GET "/assets/articles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-25 03:08:07 -0200
+
+
+Started GET "/assets/tags.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-25 03:08:07 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-25 03:08:07 -0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-10-25 03:08:07 -0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-25 03:08:07 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-25 03:08:07 -0200
+
+
+Started GET "/assets/articles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 03:08:07 -0200
+
+
+Started GET "/assets/tags.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 03:08:07 -0200
+
+
+Started GET "/assets/comments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 03:08:07 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-25 03:08:07 -0200
+
+
+Started GET "/articles/2/edit" for 127.0.0.1 at 2015-10-25 03:09:47 -0200
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?[0m  [["article_id", 2]]
+  Rendered articles/_form.html.erb (10.8ms)
+  Rendered articles/edit.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 62ms (Views: 60.3ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/articles/2" for 127.0.0.1 at 2015-10-25 03:10:05 -0200
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ovW+jCRGsNCsK7XUEcvqV5tapU7e8WLOcLK9U9ujkQOaquXmGNqbK8jgncWAv4KXBJ/axukFbaZHM+GGA3/7Lg==", "article"=>{"title"=>"Artigo numero 2: a origem das especies", "body"=>"As especies se originaram. E isto foi incrível.", "tag_list"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007ff3249a69f0 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-3071-32ppjs.jpg>, @original_filename="4.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"article[image]\"; filename=\"4.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Article", "id"=>"2"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?  [["article_id", 2]]
+Command :: file -b --mime '/tmp/a87ff679a2f3e71d9181a67b7542122c20151025-3071-1nc6l4o.jpg'
+Command :: file -b --mime '/tmp/a87ff679a2f3e71d9181a67b7542122c20151025-3071-15js3e2.jpg'
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "articles" SET "image_file_name" = ?, "image_file_size" = ?, "image_updated_at" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["image_file_name", "4.jpg"], ["image_file_size", 3438786], ["image_updated_at", "2015-10-25 05:10:05.709764"], ["updated_at", "2015-10-25 05:10:05.818132"], ["id", 2]]
+[paperclip] deleting /home/zapiano/Documentos/theOdinProject/101/rails/blogger/public/system/articles/images/000/000/002/original/5.jpg
+  [1m[35m (348.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/articles/2
+Completed 302 Found in 495ms (ActiveRecord: 348.9ms)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2015-10-25 03:10:06 -0200
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?  [["article_id", 2]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 2]]
+  Rendered articles/_comment.html.erb (1.2ms)
+  Rendered comments/_form.html.erb (1.3ms)
+  Rendered articles/show.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 55ms (Views: 52.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2015-10-25 03:12:02 -0200
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?  [["article_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 2]]
+  Rendered articles/_comment.html.erb (0.6ms)
+  Rendered comments/_form.html.erb (1.1ms)
+  Rendered articles/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 48ms (Views: 47.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/articles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-25 03:12:02 -0200
+
+
+Started GET "/assets/tags.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-25 03:12:02 -0200
+
+
+Started GET "/assets/comments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-25 03:12:02 -0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-10-25 03:12:02 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-25 03:12:02 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-25 03:12:02 -0200
+
+
+Started GET "/assets/screen.self-16f83778566f2ea814368100ac8e534d7de4921c8d7334c3f01cc357b90c6547.css?body=1" for 127.0.0.1 at 2015-10-25 03:12:02 -0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-25 03:12:02 -0200
+
+
+Started GET "/assets/articles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 03:12:02 -0200
+
+
+Started GET "/assets/comments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 03:12:02 -0200
+
+
+Started GET "/assets/tags.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 03:12:02 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-25 03:12:02 -0200
+
+
+Started GET "/articles" for 127.0.0.1 at 2015-10-25 03:12:05 -0200
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 60ms (Views: 58.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/3" for 127.0.0.1 at 2015-10-25 03:12:06 -0200
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?[0m  [["article_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 3]]
+  Rendered articles/_comment.html.erb (0.0ms)
+  Rendered comments/_form.html.erb (2.6ms)
+  Rendered articles/show.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 72ms (Views: 69.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/articles/3" for 127.0.0.1 at 2015-10-25 03:15:17 -0200
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?  [["article_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 3]]
+  Rendered articles/_comment.html.erb (0.0ms)
+  Rendered comments/_form.html.erb (1.0ms)
+  Rendered articles/show.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 155ms (Views: 153.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/comments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-25 03:15:18 -0200
+
+
+Started GET "/assets/articles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-25 03:15:18 -0200
+
+
+Started GET "/assets/styles.self-6de68796c9620fabad01d4aa45cff8aed19984660af7db65977d0277649a6508.css?body=1" for 127.0.0.1 at 2015-10-25 03:15:18 -0200
+
+
+Started GET "/assets/tags.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-25 03:15:18 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-25 03:15:18 -0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-10-25 03:15:18 -0200
+
+
+Started GET "/assets/screen.self-16f83778566f2ea814368100ac8e534d7de4921c8d7334c3f01cc357b90c6547.css?body=1" for 127.0.0.1 at 2015-10-25 03:15:18 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-25 03:15:18 -0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-25 03:15:18 -0200
+
+
+Started GET "/assets/articles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 03:15:18 -0200
+
+
+Started GET "/assets/comments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 03:15:18 -0200
+
+
+Started GET "/assets/tags.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 03:15:18 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-25 03:15:18 -0200
+
+
+Started GET "/articles" for 127.0.0.1 at 2015-10-25 03:15:22 -0200
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.4ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 45ms (Views: 44.0ms | ActiveRecord: 0.4ms)
