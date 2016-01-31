@@ -1,7 +1,7 @@
-def translada (letra,x)
+def translada letra, x
 	alfabeto = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 	letra = letra.downcase()
-	puts letra
+
 	posicao = 0
 	while alfabeto[posicao] != letra do
 		posicao += 1
@@ -16,7 +16,7 @@ def translada (letra,x)
 	return alfabeto[posicao]
 end
 
-def ceasar_cipher (cifra)
+def ceasar_cipher cifra
 	original = gets.chomp.split("")
 	cifrada = original
 	j = 0
