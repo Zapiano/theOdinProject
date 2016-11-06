@@ -1,100 +1,108 @@
+require 'pry'
+require './player.rb'
+require './board.rb'
+
 class TicTacToe
-  attr_reader :scoreboard, :turn_player, :player_1, :player_2, :winner
 
-  def initialize(player_1, player_2)
-    @player_1 = player_1
-    @player_2 = player_2
-
-    @turn_player = player_1
-    @scoreboard = [
-      [' ', ' ', ' '],
-      [' ', ' ', ' '],
-      [' ', ' ', ' ']
-    ]
+  def initialize
+    @board = Board.new
+    @turn = nil
 
     start_game
   end
 
-  def receive_move(player, line, row)
-    @scoreboard[line][row] = player_mark(player)
-
-    print_scoreboard
-
-    next_player = ([@player_1, @player_2] - player).first
-    turn_player = next_player
-    puts "#{next_player}, now s your turn."
-  end
-
   private
-  def player_mark(player)
-    return player ==  @player_1 ? 'x' : 'o'
-  end
-
   def start_game
-    puts "Welcome #{@player_1} and #{@player_2}!\n"
-    puts "On your turn, you should enter a (x,y) coordinate\n"
-    puts "corresponding to your move.\n\n"
-    puts "#{@player_1}, is your turn."
+    game_welcome
 
-    print_scoreboard
+    while !is_game_over?
+      handle_turn
+    end
+
+    end_game
   end
 
-  def print_scoreboard
-    @scoreboard.each do |line|
-      line.each do |element|
-        puts "| #{element} |"
+  def handle_turn
+    change_turn
+
+    @board.print_moves
+
+    puts "Now is #{@turn}'s turn!"
+
+    line = handle_move('line')
+    row = handle_move('row')
+
+    @board.receive_move(line, row, @turn.mark)
+  end
+
+  def change_turn
+    if @turn == nil
+      @turn = @player_1
+    else
+      @turn = ([@player_1, @player_2] - [@turn]).first
+    end
+  end
+
+  def handle_move (move_type)
+    puts move_type == "line" ? "Digite a linha" : "Digite a coluna"
+
+    valid_move = false
+
+    until valid_move
+      begin
+        move = gets.chomp.match(/\d+/)[0].to_i
+      rescue
+        puts "Input errado. O input deve ser um número"
+      else
+        if invalid_move?(move)
+          puts "O número deve estar estar entre 1 e 3"
+        else
+          valid_move = true
+        end
       end
-      puts "\n"
     end
-  end
-end
 
-class Player
-  def initialize(name)
-    @name = name
+    move
   end
 
-  public
+  def invalid_move?(move)
+    true unless move >= 1 && move <= 3
 
-  def can_play?(game, line, row)
-    unless row >= 1 && row <= 3 && line >= 1 && line <= 3
-      puts 'This is not a valid move >:('
-      return false
-    end
-
-    unless game.scoreboard[line][row] == ' '
-      puts 'This spot is occupied :|'
-      return false
-    end
-
-    unless self == game.player_1 || self == game.player_2
-      puts 'You are not playing!'
-      return false
-    end
-
-    unless game.turn_player == self
-      puts 'It is not your turn!'
-      return false
-    end
-
-    unless game.winner.nil?
-      puts 'This game is over'
-      return false
-    end
-
-    return true
+    false
   end
 
-  def play(game, x_coordinate, y_coordinate)
-    row = x_coordinate - 1
-    line = y_coordinate - 1
+  def game_welcome
+    puts "Welcome to TicZapToe :D \n\n"
 
-    if self.can_play?(game, line, row)
-      game.receive_move(self, line, row)
+    puts "Please enter the name of the first player \n\n"
+    player_1_name = gets.chomp
+
+    @player_1 = Player.new(player_1_name, 'x')
+
+    puts "Please enter the name of the second player \n\n"
+
+    player_2_name = gets.chomp
+    @player_2 = Player.new(player_2_name, 'o')
+
+    puts "Ok, now we are ready to start! In your turn, each player should choose a line and a row, like '(1,2)'. After each move, the board will be printed again. \n \n Good luck!\n\n"
+  end
+
+  def is_game_over?
+    case
+    when @board.has_full_line?
+      return true
+    when @board.has_full_row?
+      return true
+    when @board.has_full_diagonal?
+      return true
+    when @board.is_full?
+      return true
+    else
+      return false
     end
   end
 
-  private
-  def error_message(type)
+  def end_game
+    puts "The game is over. Player #{@turn} won ;)"
   end
 end
