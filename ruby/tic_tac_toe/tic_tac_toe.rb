@@ -27,10 +27,20 @@ class TicTacToe
 
     @board.print_moves
 
-    puts "Now is #{@turn}'s turn!"
+    puts "Now is #{@turn.name.capitalize}'s turn!"
 
-    line = handle_move('line')
-    row = handle_move('row')
+    valid_move = false
+
+    until valid_move
+      line = handle_move('line')
+      row = handle_move('row')
+
+      if @board.ocupied?(line, row)
+        puts 'Esta jogada já esta ocupada'
+      else
+        valid_move = true
+      end
+    end
 
     @board.receive_move(line, row, @turn.mark)
   end
@@ -88,14 +98,13 @@ class TicTacToe
   end
 
   def is_game_over?
-    case
-    when @board.has_full_line?
+    if @board.has_full_line?
       return true
-    when @board.has_full_row?
+    elsif @board.has_full_row?
       return true
-    when @board.has_full_diagonal?
+    elsif @board.has_full_diagonal?
       return true
-    when @board.is_full?
+    elsif @board.is_full?
       return true
     else
       return false
@@ -103,6 +112,12 @@ class TicTacToe
   end
 
   def end_game
-    puts "The game is over. Player #{@turn} won ;)"
+    @board.print_moves
+
+    if !@board.has_full_line? && !@board.has_full_row? && !@board.has_full_diagonal? && @board.is_full?
+      puts "The game is over. Is a tie! =|"
+    else
+      puts "The game is over. #{@turn.name.capitalize} has won! ;)"
+    end
   end
 end
